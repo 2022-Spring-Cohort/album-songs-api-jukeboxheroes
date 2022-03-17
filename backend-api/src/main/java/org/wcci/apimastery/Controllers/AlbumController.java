@@ -25,12 +25,16 @@ public class AlbumController {
     }
 
     @GetMapping("/albums")
-    public Iterable<Album> getAlbums(){
+    public Iterable<Album> getAlbums() {
         return albumRepo.findAll();
+    }
+    @GetMapping("/albums/{id}")
+    public Album getAlbum(@PathVariable long id) {
+        return albumRepo.findById(id).get();
+    }
 //    public String showIndexTemplate(Model model) {
 //        model.addAttribute("albums", albumRepo.findAll());
 //        return "indexTemplate";
-    }
 
     //    @RequestMapping(params = "song", value="/artist/{id}", method = RequestMethod.POST)
 //    public String addSongToArtist(@PathVariable long id, @RequestParam String songName) {

@@ -28,9 +28,13 @@ public class Populator implements CommandLineRunner {
         artistRepo.save(artist);
         Album MichaelJacksonHits = null;
         Song song1 = new Song("BillieJean", artist, MichaelJacksonHits);
+        Song song2 = new Song("Juke Box Hero", artist, MichaelJacksonHits);
         songRepo.save(song1);
+        songRepo.save(song2);
         Album album1 = new Album("TerminatorSoundTrack","resources/TheTerminator.jpg",song1);
+        Album album2 = new Album("4","",song2);
         albumRepo.save(album1);
+        albumRepo.save(album2);
 
 
     }
