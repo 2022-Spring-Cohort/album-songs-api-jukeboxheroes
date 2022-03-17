@@ -43,4 +43,9 @@ public class Song {
     public Collection<Song> getSongs() {
         return songs;
     }
+
+    public void addSong(String songName) {
+        this.songName = songName;
+    }
+
 }
