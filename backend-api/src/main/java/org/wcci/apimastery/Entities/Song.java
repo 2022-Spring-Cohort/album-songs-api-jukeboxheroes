@@ -2,6 +2,7 @@ package org.wcci.apimastery.Entities;
 
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
@@ -11,16 +12,18 @@ public class Song {
 
     private long id;
     private String songName;
-    private String album;
+
 
     @ManyToOne
-    private Collection<Album> albums;
+    private Album album;
 
-    private Collection<Song> songs;
+    @ManyToOne
+    private Artist artist;
 
-    public Song(String songName,Album... albums) {
-        this.id = id;
+
+    public Song(String songName,Artist artist, Album album) {
         this.songName = songName;
+        this.artist = artist;
         this.album = album;
 
     }
@@ -36,13 +39,13 @@ public class Song {
         return songName;
     }
 
-    public String getAlbum() {
+    public Album getAlbum() {
         return album;
     }
 
-    public Collection<Song> getSongs() {
-        return songs;
-    }
+//    public Collection<Song> getSongs() {
+//        return songs;
+//    }
 
     public void addSong(String songName) {
         this.songName = songName;

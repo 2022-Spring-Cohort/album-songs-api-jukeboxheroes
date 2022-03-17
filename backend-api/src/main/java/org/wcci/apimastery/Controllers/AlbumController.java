@@ -3,13 +3,15 @@ package org.wcci.apimastery.Controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.wcci.apimastery.Entities.Album;
 import org.wcci.apimastery.Entities.Artist;
 import org.wcci.apimastery.Repositories.AlbumRepository;
 import org.wcci.apimastery.Repositories.ArtistRepository;
 import org.wcci.apimastery.Repositories.SongRepository;
+
 import java.util.Optional;
 
-@Controller
+@RestController
 public class AlbumController {
     private AlbumRepository albumRepo;
     private SongRepository songRepo;
@@ -23,35 +25,13 @@ public class AlbumController {
     }
 
     @GetMapping("/")
-    public String showIndexTemplate(Model model) {
-        model.addAttribute("albums", albumRepo.findAll());
-        return "indexTemplate";
+    public Iterable<Album> getAlbums(){
+        return albumRepo.findAll();
+//    public String showIndexTemplate(Model model) {
+//        model.addAttribute("albums", albumRepo.findAll());
+//        return "indexTemplate";
     }
 
-    @GetMapping("/artists")
-    public String showArtistsTemplate(Model model) {
-        model.addAttribute("artists", artistRepo.findAll());
-        model.addAttribute("filterName", "All Artists");
-        return "ArtistsTemplate";
-    }
-
-    @GetMapping("/artists/{id}")
-    public String showConsoleTemplate(Model model, @PathVariable long id) {
-        Optional<Artist> tempArtist = artistRepo.findById(id);
-        if (tempArtist.isPresent()) {
-            model.addAttribute("inArtist", tempArtist.get());
-        }
-        return "ArtistTemplate";
-    }
-
-    @GetMapping("/artists/name/{name}")
-    public String showArtistByName(Model model, @PathVariable String name) {
-        Optional<Artist> tempArtist = artistRepo.findByNameIgnoreCase(name);
-        if (tempArtist.isPresent()) {
-            model.addAttribute("inArtist", tempArtist.get());
-        }
-        return "ArtistsTemplate";
-    }
     //    @RequestMapping(params = "song", value="/artist/{id}", method = RequestMethod.POST)
 //    public String addSongToArtist(@PathVariable long id, @RequestParam String songName) {
 //        Optional<Artist> tempArtist = tempArtist.findById(id);

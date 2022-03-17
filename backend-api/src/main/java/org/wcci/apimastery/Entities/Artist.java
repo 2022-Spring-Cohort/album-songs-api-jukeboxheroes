@@ -15,9 +15,27 @@ public class Artist {
     private long Id;
     private String name;
 
-    @OneToMany
-    private Collection<Artist> artist;
-
-    @ManyToOne
+    @OneToMany(mappedBy = "artist")
     private Collection<Song> songs;
+
+    public Artist(String name) {
+        this.name = name;
+    }
+
+    public Artist(){
+
+    }
+
+    public long getId() {
+        return Id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+    public Collection<Song> getSongs() {
+        return songs;
+    }
 }

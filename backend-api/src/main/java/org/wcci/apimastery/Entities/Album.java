@@ -11,31 +11,39 @@ public class Album {
     @Id
     @GeneratedValue
 
-    private long Id;
+    private long id;
     private String albumName;
+    private String img;
 
-    @ManyToOne
-    @JoinColumn(name = "songs_id")
-    private Song songs;
+    @OneToMany(mappedBy = "album")
+    private Collection<Song> songs;
 
-    public Song getSongs() {
-        return songs;
-    }
+
 
     public String getAlbumName() {
         return albumName;
     }
+
+    public String getImg() {
+        return img;
+    }
+
+    public Collection<Song> getSongs() {
+        return songs;
+    }
+
     private Album(){
     }
 
-    public Album(String albumName, Song...songs) {
+    public Album(String albumName, String img, Song...songs) {
         this.albumName = albumName;
-        this.songs = (Song) Arrays.asList(songs);
+        this.img = img;
+        this.songs = Arrays.asList(songs);
     }
 
 
     public long getId() {
-        return Id;
+        return id;
     }
 
 
