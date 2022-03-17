@@ -4,7 +4,7 @@ import {albums} from "./albumJson.js";
 const containerEl = document.querySelector(".container");
 
 function makeHomeView() {
-fetch("localhost:8080/")
+fetch("localhost:8080/albums")
     .then(res => res.json())
     .then(albums => {
         console.log(albums)

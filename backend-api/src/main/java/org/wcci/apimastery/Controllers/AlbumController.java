@@ -24,7 +24,7 @@ public class AlbumController {
         this.artistRepo = artistRepo;
     }
 
-    @GetMapping("/")
+    @GetMapping("/albums")
     public Iterable<Album> getAlbums(){
         return albumRepo.findAll();
 //    public String showIndexTemplate(Model model) {
