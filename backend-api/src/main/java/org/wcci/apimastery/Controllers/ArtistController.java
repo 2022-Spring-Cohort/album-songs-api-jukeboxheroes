@@ -12,31 +12,31 @@ import org.wcci.apimastery.Repositories.SongRepository;
 import java.util.Optional;
 
 @Controller
-public class SongController {
+public class ArtistController {
     private ArtistRepository artistRepo;
     private SongRepository songRepo;
     private AlbumRepository albumRepo;
 
-    public SongController(ArtistRepository artistRepo, SongRepository songRepo, AlbumRepository albumRepo) {
+    public ArtistController(ArtistRepository artistRepo, SongRepository songRepo, AlbumRepository albumRepo) {
         this.artistRepo = artistRepo;
         this.songRepo = songRepo;
         this.albumRepo = albumRepo;
     }
 
-    @GetMapping("/songs")
-    public String showSongsTemplate(Model model) {
-        model.addAttribute("songs", songRepo.findAll());
-        model.addAttribute("filterName", "All Songs");
-        return "SongsTemplate";
+    @GetMapping("/artists")
+    public String showArtistsTemplate(Model model) {
+        model.addAttribute("songs", artistRepo.findAll());
+        model.addAttribute("filterName", "All Artists");
+        return "ArtistsTemplate";
     }
 
-    @GetMapping("/song/{id}")
-    public String showSongTemplate(Model model, @PathVariable long id) {
+    @GetMapping("/artist/{id}")
+    public String showArtistTemplate(Model model, @PathVariable long id) {
         Optional<Song> tempSong = songRepo.findById(id);
         if (tempSong.isPresent()) {
             model.addAttribute("artists", tempSong.get().getSongs());
             model.addAttribute("filterName", tempSong.get().getSongName());
-            return "ArtistsTemplate";
+            return "SongsTemplate";
         }
 
         return null;
