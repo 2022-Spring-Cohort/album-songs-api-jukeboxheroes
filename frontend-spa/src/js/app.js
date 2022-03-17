@@ -1,22 +1,17 @@
-//i think itll start with a fetch
-import home from "./ul.js";
+import home from "./home.js";
 
-fetch("localhost:8080/")
+const containerEl = document.querySelector(".container");
+
+function makeHomeView() {
+fetch("localhost:8080/albums")
     .then(res => res.json())
     .then(albums => {
         console.log(albums)
-        const containerEl = document.querySelector(".container");
         containerEl.innerHTML = home(albums);
     })
+}
 
-const bodyEl = document.querySelector(".body");
-const headerEl = document.querySelector(".h1");
-const listEl = document.querySelector(".unordered-list");
-const listitemEl = document.querySelector(".list-item");
-const audioEl = document.querySelector(".audioStuff");
-
-
-
+makeHomeView();
 
 
 
