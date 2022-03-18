@@ -24,41 +24,49 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Artist artist = new Artist("Michael Jackson");
-        artistRepo.save(artist);
-        Album MichaelJacksonHits = null;
-        Song song1 = new Song("BillieJean", artist, MichaelJacksonHits);
-        Song song2 = new Song("Juke Box Hero", artist, MichaelJacksonHits);
 
-        songRepo.save(song1);
-        songRepo.save(song2);
-        Album album1 = new Album("TerminatorSoundTrack","resources/TheTerminator.jpg",song1);
-        Album album2 = new Album("4","",song2);
-        Album album3 = new Album("The Marshall Mathers LP2","",song2);
-        Album album4 = new Album("Led Zeppelin I", "", song1);
-        Album album5 = new Album("Led Zeppelin II", "", song1);
-        Album album6 = new Album("Led Zeppelin III", "", song1);
-        Album album7 = new Album("Led Zeppelin IV", "", song1);
-        Album album8 = new Album("Coda", "", song1);
-        Album album9 = new Album("Presence", "", song1);
-        Album album10 = new Album("Mothership", "", song1);
-        Album album11 = new Album("In Through The Out Door", "", song1);
-        Album album12 = new Album("Houses of The Holy", "", song1);
-        Album album13 = new Album("Physical Graffiti", "", song1);
-
+        Artist Foreigner = new Artist("Foreigner");
+        artistRepo.save(Foreigner);
+        Song JukeBoxHero = new Song("Juke Box Hero", "4:19","Stars in his eyes", 5, Foreigner );
+        songRepo.save(JukeBoxHero);
+        Album album1 = new Album("4","","Atlantic Records","Best album eva",5,JukeBoxHero);
         albumRepo.save(album1);
+
+        Artist michaelJackson = new Artist("Michael Jackson");
+        artistRepo.save(michaelJackson);
+        Song BillieJean = new Song("BillieJean", "4:15","Itsa greeat!", 5,michaelJackson);
+        songRepo.save(BillieJean);
+        Album album2 = new Album("Thriller","","Atlantic Records", "Itsa greaat!", 5, BillieJean);
         albumRepo.save(album2);
+
+        Artist theWeekend = new Artist("The Weekend");
+        artistRepo.save(theWeekend);
+        Song Starboy = new Song("Starboy", "3:15", "Adnan is the __ Starboy",5, theWeekend);
+        songRepo.save(Starboy);
+        Album album3 = new Album("Starboy","", "Republican Records","#starfish", 5, Starboy);
         albumRepo.save(album3);
+
+        Artist brittanySpears = new Artist("Brittany Spears");
+        artistRepo.save(brittanySpears);
+        Song doSomethin = new Song("Do Somethin","3:24","Brian says leave Brittany alone!",5, brittanySpears);
+        songRepo.save(doSomethin);
+        Album album4 = new Album("My Prerogative", "", "Zomba Records","Its Brian's prerogative",5, doSomethin);
         albumRepo.save(album4);
+
+        Artist electricLightOrchestra = new Artist("Electric Light Orchestra");
+        artistRepo.save(electricLightOrchestra);
+        Song mrBlueSky = new Song("Mr. Blue Sky", "5:03", "Guardians of the Galaxy Theme song",5, electricLightOrchestra);
+        songRepo.save(mrBlueSky);
+        Album album5 = new Album("Out of the Blue", "", "Epic Records", "Baby Groots fave album",5,mrBlueSky);
         albumRepo.save(album5);
+
+        Artist Queen = new Artist("Queen");
+        artistRepo.save(Queen);
+        Song bohemianRhapsody = new Song("Bohemian Rhapsody", "5:54", "Righteous", 5,Queen);
+        songRepo.save(bohemianRhapsody);
+        Album album6 = new Album("A Night at the Opera", "", "Hollywood Records","We're not worthy", 5, bohemianRhapsody);
         albumRepo.save(album6);
-        albumRepo.save(album7);
-        albumRepo.save(album8);
-        albumRepo.save(album9);
-        albumRepo.save(album10);
-        albumRepo.save(album11);
-        albumRepo.save(album12);
-        albumRepo.save(album13);
+
 
 
     }

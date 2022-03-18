@@ -2,6 +2,7 @@ package org.wcci.apimastery.Entities;
 
 
 import javax.persistence.*;
+import java.security.PrivateKey;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -12,6 +13,9 @@ public class Song {
 
     private long id;
     private String songName;
+    private String duration;
+    private String comments;
+    private int rating;
 
 
     @ManyToOne
@@ -21,12 +25,15 @@ public class Song {
     private Artist artist;
 
 
-    public Song(String songName,Artist artist, Album album) {
+    public Song(String songName, String duration, String comments, int rating, Artist artist) {
         this.songName = songName;
-        this.artist = artist;
+        this.duration = duration;
+        this.comments = comments;
+        this.rating = rating;
         this.album = album;
-
+        this.artist = artist;
     }
+
     public Song(){
 
     }
@@ -51,4 +58,19 @@ public class Song {
         this.songName = songName;
     }
 
+    public String getDuration() {
+        return duration;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public Artist getArtist() {
+        return artist;
+    }
 }
