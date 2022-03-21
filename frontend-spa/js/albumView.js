@@ -25,6 +25,11 @@ export default function albumView(album) {
                     album.songs.map(song => {
                     return `<section class="album-songs">
                     <h2 class="song-name">${song.name}</h2>
+                    ${
+                    song.comments.map(comment => {
+            return `${ comment.body }</h3 >`;
+                    }).join("")
+                }
                     <input type="hidden" class="id_field" value="${song.id}" ></input>
                     <button class="delete-song-button">Delete</button>
                     <input type="text" placeholder="NewSongName" class="update-song-name"></input>

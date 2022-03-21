@@ -29,7 +29,7 @@ public class Album {
         this.img = img;
         this.recordLabel = recordLabel;
         this.rating = rating;
-        this.comments = new ArrayList<>();
+        comments = new ArrayList<>();
     }
     private Album(){
     }
