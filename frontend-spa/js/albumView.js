@@ -12,7 +12,7 @@ export default function albumView(album) {
     <main class="main-content">
         <section class="album-library">
             <header class="album-library-header">
-                <h2 class="album-library-header__title">${album.title}</h2>
+                <h2 class="album-title">${album.title}</h2>
                  ${
         album.comments.map(comment => {
             return `<h3 class="comment-body">${comment.body}</h3>`;
