@@ -73,4 +73,8 @@ public class Song {
     public Collection<Comment> getComments() {
         return comments;
     }
+
+    public void updateName(String name) {
+        this.name = name;
+    }
 }

@@ -12,21 +12,29 @@ export default function albumView(album) {
     <main class="main-content">
         <section class="album-library">
             <header class="album-library-header">
-                <h2 class="album-title">${album.title}</h2>
+                <h2 class="album-library-header__title">${album.title}</h2>
                  ${
         album.comments.map(comment => {
-            return `<h3 class="comment-body">${comment.body}</h3>`;
+            return `<h3 class="comment-name">${comment.body}</h3>`;
         }).join("")
     }
             </header>
-            <section class="album-songs">
+            
                 ${
+                    
                     album.songs.map(song => {
-                    return `<h3 class="song-name">${song.name}</h3>`;
+                    return `<section class="album-songs">
+                    <h2 class="song-name">${song.name}</h2>
+                    <input type="hidden" class="id_field" value="${song.id}" ></input>
+                    <button class="delete-song-button">Delete</button>
+                    <input type="text" placeholder="NewSongName" class="update-song-name"></input>
+                    <button class="update-song-button">Update Song</button>
+                    </section>`;
+
+              
                 }).join("")
         }
                 
-            </section>
             <div class="NewSongDiv">
                 <input type="text" placeholder="Song Name" class="songNameInput" \>
                   
@@ -35,4 +43,5 @@ export default function albumView(album) {
             <a class="back-navigation">back to album listings</a>
         </section>
     </main>`;
+    
 }

@@ -13,7 +13,7 @@
     background-color: blue;
 }
 h3.song-name{
-    font-size: m;
+    font-size: large;
 }
 .album-title {
     font-size: xx-large;
@@ -40,7 +40,6 @@ h3.song-name{
 
 .container{
     display:grid;
-    grid-template-columns: 50% 50%;
     margin: 20px auto;
     width:50%;
     text-align: center;

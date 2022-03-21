@@ -9,7 +9,7 @@ ${albums.map(album => {
         <section class="album-songs">
                 ${
             album.songs.map(song => {
-                return `<h3 class="song-name">${song.name}</h3>`;
+                return `<h2 class="song-name">${song.name}</h2>`;
             }).join("")
         }
                 

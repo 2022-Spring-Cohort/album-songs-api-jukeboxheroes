@@ -17,6 +17,13 @@ function makeHomeViewFromJSON(albums) {
     containerEl.innerHTML = home(albums);
 
     const albumEl = containerEl.querySelectorAll(".album");
+
+    
+
+    // albumEl.forEach(album => {
+    //     let album2 = album.querySelector(".id_field");
+        
+    // })
   
 
     albumEl.forEach(album => {
@@ -26,6 +33,7 @@ function makeHomeViewFromJSON(albums) {
             albums.forEach(albumJson => {
                 if (albumJson.id == albumIdEl.value) {
                     makeAlbumView(albumJson);
+                    
                 }
             })
             // alert("You clicked me: " + campusIdEl.value);
@@ -61,19 +69,46 @@ function makeAlbumView(album) {
     console.log(album);
     containerEl.innerHTML = albumView(album);
 
+    const songEl = containerEl.querySelectorAll(".album-songs")
+
+    songEl.forEach(song => {
+        let songIdEl = song.querySelector(".id_field");
+        const deleteButton = song.querySelector(".delete-song-button");
+        deleteButton.addEventListener("click", () => {
+            fetch("http://localhost:8080/songs/" + songIdEl.value, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(newSongs => {
+                    makeHomeViewFromJSON(newSongs);
+                })
+        })
+        const updateSongButton = song.querySelector(".update-song-button");
+        updateSongButton.addEventListener("click", () => {
+            console.log("clicked!");
+            const updateSongName = song.querySelector(".update-song-name");
+            fetch("http://localhost:8080/songs/" + songIdEl.value, {
+                method: 'PATCH',
+                body: updateSongName.value
+            })
+                .then(res => res.json())
+                .then(newSongs => {
+                    makeHomeViewFromJSON(newSongs);
+                })
+            })
+        })
+    
+
     const backButton = containerEl.querySelector(".back-navigation");
     backButton.addEventListener("click", () => {
         makeHomeView();
     })
 
-    // const titleInput = containerEl.querySelector(".titleInput");
-    // const albumImageInput = containerEl.querySelector(".albumImageInput");
-    // const recordLabelInput = containerEl.querySelector(".recordLabelInput");
-    // const albumRatingInput = containerEl.querySelector(".albumRatingInput.value");
-
     const addSongBtn = containerEl.querySelector(".addSongButton");
 
     const songNameInput = containerEl.querySelector(".songNameInput");
+
+
 
     addSongBtn.addEventListener("click", () => {
         const newSongJson = {
@@ -91,6 +126,7 @@ function makeAlbumView(album) {
                 makeAlbumView(album);
             })
     })
+    
     // })
 }
 
