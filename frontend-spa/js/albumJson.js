@@ -2,7 +2,7 @@ const albums =
 [
     {
       "id": 1,
-      "albumName": "Donda",
+      "title": "Donda",
       "songs": [
         {
           "id": 3,
@@ -13,7 +13,7 @@ const albums =
     },
     {
       "id": 2,
-      "albumName": "Starboy",
+      "title": "Starboy",
       "songs": []
     }
   ]

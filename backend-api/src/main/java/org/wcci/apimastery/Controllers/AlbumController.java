@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.wcci.apimastery.Entities.Album;
 import org.wcci.apimastery.Entities.Artist;
+import org.wcci.apimastery.Entities.Song;
 import org.wcci.apimastery.Repositories.AlbumRepository;
 import org.wcci.apimastery.Repositories.ArtistRepository;
 import org.wcci.apimastery.Repositories.SongRepository;
@@ -32,6 +33,18 @@ public class AlbumController {
     public Album getAlbum(@PathVariable long id) {
         return albumRepo.findById(id).get();
     }
-    
+    @PostMapping("/albums/{id}/addSong")
+    public Album addSongToAblum(@PathVariable long id, @RequestBody Song song){
+        Album album = albumRepo.findById(id).get();
+        song.setAlbum(album);
+        songRepo.save(song);
+        return album;
+    }
+    @PostMapping("/albums/addAlbum")
+    public Iterable<Album> addAlbums(@RequestBody Album album){
+        albumRepo.save(album);
+        return albumRepo.findAll();
+    }
+
 
 }

@@ -4,7 +4,6 @@ package org.wcci.apimastery.Entities;
 import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
-import org.wcci.apimastery.Repositories.SongRepository;
 
 @Entity
 public class Album {
@@ -12,7 +11,7 @@ public class Album {
     @GeneratedValue
 
     private long id;
-    private String albumName;
+    private String title;
     private String img;
     private String recordLabel;
     private String comments;
@@ -21,8 +20,8 @@ public class Album {
     @OneToMany(mappedBy = "album")
     private Collection<Song> songs;
 
-    public Album(String albumName, String img, String recordLabel, String comments, int rating, Song... songs) {
-        this.albumName = albumName;
+    public Album(String title, String img, String recordLabel, String comments, int rating, Song... songs) {
+        this.title = title;
         this.img = img;
         this.recordLabel = recordLabel;
         this.comments = comments;
@@ -32,8 +31,8 @@ public class Album {
     private Album(){
     }
 
-    public String getAlbumName() {
-        return albumName;
+    public String getTitle() {
+        return title;
     }
 
     public String getImg() {

@@ -73,4 +73,8 @@ public class Song {
     public Artist getArtist() {
         return artist;
     }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
 }
