@@ -8,6 +8,13 @@
     text-align: center;
     background-color: blue;
 }
+h3.song-name{
+    font-size: medium;
+}
+.album-title {
+    font-size: xx-large;
+    color: blueviolet;
+}
 
 .container{
     display:grid;
@@ -18,8 +25,33 @@
     background-color: aqua;
     list-style-type: none;
     padding-left: 0px;
+     padding-top: 20px;
+}
+.album-songs{
+    display: flex;
+    flex-direction: row;
+
 }
 
-li{
-    padding-top: 20px;
+.album-list > .album, 
+.album-songs > .song-name > p{
+    margin-top: 10px;
+}
+.album-list {
+    display: flex;
+    flex-direction: column;
+}
+.album-library{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+}
+.album-songs{
+    display: flex;
+    flex-direction: column;
+}
+.main-content>.song{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
 }

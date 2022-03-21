@@ -42,7 +42,7 @@ function makeHomeViewFromJSON(albums) {
         })
         const updateButton = album.querySelector(".update-button");
         updateButton.addEventListener("click", () => {
-            const updateInput = album.querySelector(".update-album");
+            const updateInput = album.querySelector(".update-title");
             fetch("http://localhost:8080/albums/" + albumIdEl.value, {
                     method: 'PATCH',
                     body: updateInput.value
@@ -66,12 +66,15 @@ function makeAlbumView(album) {
         makeHomeView();
     })
 
-    const titleInput = containerEl.querySelector(".titleInput");
-    const albumImageInput = containerEl.querySelector(".albumImageInput");
-    const recordLabelInput = containerEl.querySelector(".recordLabelInput");
-    const albumRatingInput = containerEl.querySelector(".albumRatingInput.value");
+    // const titleInput = containerEl.querySelector(".titleInput");
+    // const albumImageInput = containerEl.querySelector(".albumImageInput");
+    // const recordLabelInput = containerEl.querySelector(".recordLabelInput");
+    // const albumRatingInput = containerEl.querySelector(".albumRatingInput.value");
 
     const addSongBtn = containerEl.querySelector(".addSongButton");
+
+    const songNameInput = containerEl.querySelector(".songNameInput");
+
     addSongBtn.addEventListener("click", () => {
         const newSongJson = {
             "name": songNameInput.value,
@@ -85,7 +88,7 @@ function makeAlbumView(album) {
         })
             .then(res => res.json())
             .then(album => {
-                makeCampusView(album);
+                makeAlbumView(album);
             })
     })
     // })
