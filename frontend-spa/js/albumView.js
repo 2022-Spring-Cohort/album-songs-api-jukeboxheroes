@@ -8,26 +8,30 @@
 // }`
 // }
 export default function albumView(album) {
+    console.log(album)
     return `
     <main class="main-content">
         <section class="album-library">
             <header class="album-library-header">
                 <h2 class="album-library-header__title">${album.title}</h2>
-                 ${
-        album.comments.map(comment => {
-            return `<h3 class="comment-name">${comment.body}</h3>`;
-        }).join("")
-    }
+                 ${album.comments.map(comment => {
+        return `<h3 class="comment-name">${comment.body}</h3>`;
+    }).join("")
+        }
             </header>
-                ${
-                    album.songs.map(song => {
-                    return `<section class="album-songs">
+                ${album.songs.map(song => {
+            return `<section class="album-songs">
                     <h2 class="song-name">${song.name}</h2>
                     ${
+                        (song.comments != null) ? 
                     song.comments.map(comment => {
-            return `${ comment.body }</h3 >`;
-                    }).join("")
-                }
+                    return `${comment.body}</h3 ><br>`;
+                }).join("")
+                : "" }
+        
+        
+                
+            
                     <input type="hidden" class="id_field" value="${song.id}" ></input>
                     <button class="delete-song-button">Delete</button>
 
@@ -40,9 +44,8 @@ export default function albumView(album) {
                 <button class="addSongCommentBtn">Add Song Comment</button>
             </div>
                     </section>`;
+        }).join("")
 
-              
-                }).join("")
         }
                 
             <div class="NewSongDiv">
@@ -52,7 +55,7 @@ export default function albumView(album) {
             </div>
              
             <a class="back-navigation">back to album listings</a>
-        </section>
-    </main>`;
+        </section >
+    </main > `;
     
 }

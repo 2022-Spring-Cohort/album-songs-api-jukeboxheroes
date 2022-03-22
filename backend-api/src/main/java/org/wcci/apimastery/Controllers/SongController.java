@@ -29,26 +29,26 @@ public class SongController {
         return songRepo.findById(id).get();
     }
     @DeleteMapping("/songs/{id}")
-    public Iterable<Song> deleteBook(@PathVariable long id)
+    public Iterable<Album> deleteBook(@PathVariable long id)
     {
         songRepo.delete(songRepo.findById(id).get());
-        return songRepo.findAll();
+        return albumRepo.findAll();
     }
 
     @PatchMapping("/songs/{id}")
-    public Iterable<Song> updateName(@PathVariable long id, @RequestBody String name)
+    public Iterable<Album> updateName(@PathVariable long id, @RequestBody String name)
     {
         Song song = songRepo.findById(id).get();
         song.updateName(name);
         songRepo.save(song);
-        return  songRepo.findAll();
+        return  albumRepo.findAll();
     }
     @PostMapping("/songs/{id}/addSongComment")
-    public Iterable<Song> addCommentToSong(@PathVariable long id, @RequestBody Comment comment){
+    public Iterable<Album> addCommentToSong(@PathVariable long id, @RequestBody Comment comment){
         Song song = songRepo.findById(id).get();
         song.addComment(comment);
         songRepo.save(song);
-        return songRepo.findAll();
+        return albumRepo.findAll();
     }
 
 }

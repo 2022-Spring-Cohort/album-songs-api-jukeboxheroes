@@ -79,8 +79,13 @@ function makeAlbumView(album) {
                 method: 'DELETE'
             })
                 .then(res => res.json())
-                .then(newSongs => {
-                    makeHomeViewFromJSON(newSongs);
+                .then(newAlbums => {
+                    console.log(newAlbums)
+                    newAlbums.forEach(newAlbum => {
+                        if(newAlbum.id == album.id){
+                            makeAlbumView(newAlbum);
+                        }
+                    });
                 })
         })
         const updateSongButton = song.querySelector(".update-song-button");
@@ -92,11 +97,55 @@ function makeAlbumView(album) {
                 body: updateSongName.value
             })
                 .then(res => res.json())
-                .then(newSongs => {
-                    makeHomeViewFromJSON(newSongs);
+                .then(newAlbums => {
+                    console.log(newAlbums)
+                    newAlbums.forEach(newAlbum => {
+                        if (newAlbum.id == album.id) {
+                            makeAlbumView(newAlbum);
+                        }
+                    });
                 })
             })
+        
+   
+
+
+    // })
+
+        
+    const addSongCommentBtn = song.querySelector(".addSongCommentBtn")
+
+    const songCommentInput = song.querySelector(".songCommentInput")
+    if(songCommentInput != null){
+    addSongCommentBtn.addEventListener("click", () => {
+        const newSongJson = {
+            "body": songCommentInput.value,
+        }
+        fetch(`http://localhost:8080/songs/${songIdEl.value}/addSongComment`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newSongJson)
         })
+            .then(res => res.json())
+            .then(newAlbums => {
+                console.log(newAlbums)
+                newAlbums.forEach(newAlbum => {
+                    if (newAlbum.id == album.id) {
+                        makeAlbumView(newAlbum);
+                    }
+                });
+            })
+    })
+}
+    
+    })
+    const backButton = containerEl.querySelector(".back-navigation");
+    backButton.addEventListener("click", () => {
+        makeHomeView();
+    })
+
     const addSongBtn = containerEl.querySelector(".addSongButton");
 
     const songNameInput = containerEl.querySelector(".songNameInput");
@@ -120,42 +169,12 @@ function makeAlbumView(album) {
                 makeAlbumView(album);
             })
     })
-
-
-    // })
-
-        
-    const addSongCommentBtn = containerEl.querySelector(".addSongCommentBtn")
-
-    const songCommentInput = containerEl.querySelector(".songCommentInput")
-    addSongCommentBtn.addEventListener("click", () => {
-        let songIdEl = song.querySelector(".id_field");
-        const newSongJson = {
-            "body": songCommentInput.value,
-        }
-        fetch(`http://localhost:8080/songs/${song.id}/addSongComment`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newSongJson)
-        })
-            .then(res => res.json())
-            .then(album => {
-                makeAlbumView(album);
-            })
-    })
     
-
-    const backButton = containerEl.querySelector(".back-navigation");
-    backButton.addEventListener("click", () => {
-        makeHomeView();
-    })
-
     
     
     // })
 }
+
 
 makeHomeView();
 
