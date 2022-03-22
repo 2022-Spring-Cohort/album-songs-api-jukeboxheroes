@@ -2,6 +2,7 @@ package org.wcci.apimastery.Controllers;
 
 import org.springframework.web.bind.annotation.*;
 import org.wcci.apimastery.Entities.Album;
+import org.wcci.apimastery.Entities.Comment;
 import org.wcci.apimastery.Entities.Song;
 import org.wcci.apimastery.Repositories.AlbumRepository;
 import org.wcci.apimastery.Repositories.SongRepository;
@@ -42,4 +43,12 @@ public class SongController {
         songRepo.save(song);
         return  songRepo.findAll();
     }
+    @PostMapping("/songs/{id}/addSongComment")
+    public Iterable<Song> addCommentToSong(@PathVariable long id, @RequestBody Comment comment){
+        Song song = songRepo.findById(id).get();
+        song.addComment(comment);
+        songRepo.save(song);
+        return songRepo.findAll();
+    }
+
 }

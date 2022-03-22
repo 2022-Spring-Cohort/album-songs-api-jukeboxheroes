@@ -97,16 +97,10 @@ function makeAlbumView(album) {
                 })
             })
         })
-    
-
-    const backButton = containerEl.querySelector(".back-navigation");
-    backButton.addEventListener("click", () => {
-        makeHomeView();
-    })
-
     const addSongBtn = containerEl.querySelector(".addSongButton");
 
     const songNameInput = containerEl.querySelector(".songNameInput");
+
 
 
 
@@ -126,6 +120,39 @@ function makeAlbumView(album) {
                 makeAlbumView(album);
             })
     })
+
+
+    // })
+
+        
+    const addSongCommentBtn = containerEl.querySelector(".addSongCommentBtn")
+
+    const songCommentInput = containerEl.querySelector(".songCommentInput")
+    addSongCommentBtn.addEventListener("click", () => {
+        let songIdEl = song.querySelector(".id_field");
+        const newSongJson = {
+            "body": songCommentInput.value,
+        }
+        fetch(`http://localhost:8080/songs/${song.id}/addSongComment`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newSongJson)
+        })
+            .then(res => res.json())
+            .then(album => {
+                makeAlbumView(album);
+            })
+    })
+    
+
+    const backButton = containerEl.querySelector(".back-navigation");
+    backButton.addEventListener("click", () => {
+        makeHomeView();
+    })
+
+    
     
     // })
 }

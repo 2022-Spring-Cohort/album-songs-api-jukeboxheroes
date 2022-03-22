@@ -19,9 +19,7 @@ export default function albumView(album) {
         }).join("")
     }
             </header>
-            
                 ${
-                    
                     album.songs.map(song => {
                     return `<section class="album-songs">
                     <h2 class="song-name">${song.name}</h2>
@@ -32,8 +30,15 @@ export default function albumView(album) {
                 }
                     <input type="hidden" class="id_field" value="${song.id}" ></input>
                     <button class="delete-song-button">Delete</button>
+
                     <input type="text" placeholder="NewSongName" class="update-song-name"></input>
                     <button class="update-song-button">Update Song</button>
+
+                    <div class="NewSongCommentDiv">
+                <input type="text" placeholder="Song Comment" class="songCommentInput" class="id_field2"\>
+                  
+                <button class="addSongCommentBtn">Add Song Comment</button>
+            </div>
                     </section>`;
 
               
@@ -45,6 +50,7 @@ export default function albumView(album) {
                   
                 <button class="addSongButton">Add song</button>
             </div>
+             
             <a class="back-navigation">back to album listings</a>
         </section>
     </main>`;

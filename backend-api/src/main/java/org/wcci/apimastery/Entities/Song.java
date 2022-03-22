@@ -36,11 +36,11 @@ public class Song {
     public Song(){
     }
 
-    public void addComment(Comment newComment) {
+    public void addComment(Comment comment) {
         if (comments == null) {
             comments = new ArrayList<>();
         }
-        comments.add(newComment);
+        comments.add(comment);
     }
     public long getId() {
         return id;

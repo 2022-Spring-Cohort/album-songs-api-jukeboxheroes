@@ -23,10 +23,12 @@ public class AlbumController {
     public Iterable<Album> getAlbums() {
         return albumRepo.findAll();
     }
+
     @GetMapping("/albums/{id}")
     public Album getAlbum(@PathVariable long id) {
         return albumRepo.findById(id).get();
     }
+
     @PostMapping("/albums/{id}/addSong")
     public Album addSongToAlbum(@PathVariable long id, @RequestBody Song song){
         Album album = albumRepo.findById(id).get();
@@ -40,7 +42,6 @@ public class AlbumController {
         albumRepo.delete(albumRepo.findById(id).get());
         return  albumRepo.findAll();
     }
-
 
     @PostMapping("/albums/addAlbum")
     public Iterable<Album> addAlbums(@RequestBody Album album){
