@@ -60,6 +60,29 @@ function makeHomeViewFromJSON(albums) {
                     makeHomeViewFromJSON(newAlbums);
                 })
         })
+
+        const addAlbumCommentBtn = album.querySelector(".addAlbumCommentBtn");
+
+        const albumCommentInput = album.querySelector(".albumCommentInput");
+
+        if (albumCommentInput != null) {
+            addAlbumCommentBtn.addEventListener("click", () => {
+                const newSongJson = {
+                    "body": albumCommentInput.value,
+                }
+                fetch(`http://localhost:8080/albums/${albumIdEl.value}/addAlbumComment`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newSongJson)
+                })
+                    .then(res => res.json())
+                    .then(newAlbums => {
+                        makeHomeViewFromJSON(newAlbums);
+                    })
+            })
+        }
     })
     const addAlbumBtn = containerEl.querySelector(".add-album-button")
 
@@ -164,6 +187,8 @@ function makeAlbumView(album) {
                     })
             })
         }
+        
+
 
     })
 
@@ -175,6 +200,7 @@ function makeAlbumView(album) {
     const addSongBtn = containerEl.querySelector(".addSongButton");
 
     const songNameInput = containerEl.querySelector(".songNameInput");
+
 
 
 
@@ -194,6 +220,8 @@ function makeAlbumView(album) {
                 makeAlbumView(album);
             })
     })
+
+    
 
     
 

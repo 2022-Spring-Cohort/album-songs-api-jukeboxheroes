@@ -14,14 +14,11 @@ export default function albumView(album) {
         <section class="album-library">
             <header class="album-library-header">
                 <h2 class="album-library-header__title">${album.title}</h2>
-                 ${album.comments.map(comment => {
-        return `<h3 class="comment-name">${comment.body}</h3>`;
-    }).join("")
-        }
             </header>
                 ${album.songs.map(song => {
             return `<section class="album-songs">
                     <h2 class="song-name">${song.name}</h2>
+                    
                     ${
                         (song.comments != null) ? 
                     song.comments.map(comment => {

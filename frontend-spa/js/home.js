@@ -6,10 +6,15 @@ ${albums.map(album => {
         return `<div class="album">
         <h2 class="album-title" >${album.title}</h2>
         <input type="hidden" class="id_field" value="${album.id}" >
+        <div class="NewAlbumCommentDiv">
+                <input type="text" placeholder="Album Comment" class="albumCommentInput" class="id_field2"\>
+                  
+                <button class="addAlbumCommentBtn">Add Album Comment</button>
+            </div>
         <section class="album-songs">
                 ${
-            album.songs.map(song => {
-                return `<h2 class="song-name">${song.name}</h2>`;
+            album.comments.map(comment => {
+                return `<h2 class="song-name">${comment.body}</h2>`;
             }).join("")
         }
                 
