@@ -17,8 +17,13 @@ ${albums.map(album => {
         <button class="delete-button">Delete</button>
         <input type="text" class="update-title" placeholder="New Title"" />
         <button class="update-button">Update Title</button>
+
+
      </div>`
     }).join("")
         }  
+        <input type="text" class="add-album" placeholder= "New Album Title" />
+        <button class="add-album-button">Add Album</button>
+        </main>
 `
 }

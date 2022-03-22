@@ -58,6 +58,10 @@ public class Album {
         return comments;
     }
 
+    public void addAlbum(String title) {
+        this.title = title;
+    }
+
     public int getRating() {
         return rating;
     }

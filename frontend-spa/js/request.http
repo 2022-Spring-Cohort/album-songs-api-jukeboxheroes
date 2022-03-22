@@ -1,4 +1,14 @@
 
+
 ###
 GET http://localhost:8080/albums/
+
+###
+POST http://localhost:8080/albums/addAlbum
+Content-Type: application/json
+
+{
+    "title": "driognwe4f",
+    "songs": []
+}
 

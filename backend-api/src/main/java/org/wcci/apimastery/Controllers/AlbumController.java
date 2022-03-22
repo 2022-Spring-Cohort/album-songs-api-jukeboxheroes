@@ -44,10 +44,11 @@ public class AlbumController {
     }
 
     @PostMapping("/albums/addAlbum")
-    public Iterable<Album> addAlbums(@RequestBody Album album){
+    public Iterable<Album> addAlbum(@RequestBody Album album){
         albumRepo.save(album);
         return albumRepo.findAll();
     }
+
     @PatchMapping("/albums/{id}")
     public Iterable<Album> changeAlbumTitle(@PathVariable long id, @RequestBody String title)
     {
