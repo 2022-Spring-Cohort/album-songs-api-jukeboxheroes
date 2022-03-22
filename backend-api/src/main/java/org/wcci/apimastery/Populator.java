@@ -19,7 +19,7 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Album album1 = new Album("4","Foreigner", "","Atlantic Records",5);
+        Album album1 = new Album("4","Foreigner", "images/Foreigner4.jpg","Atlantic Records",5);
         album1.addComment(new Comment("Ben's Life is this album"));
         albumRepo.save(album1);
         Song JukeBoxHero = new Song("Juke Box Hero", "4:19", 5, album1 );
