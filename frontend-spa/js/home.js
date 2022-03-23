@@ -5,6 +5,7 @@ export default function home(albums) {
 ${albums.map(album => {
         return `<div class="album">
         <h2 class="album-title" >${album.title}</h2>
+        <img class="album-image" src="${album.img}" alt="Album Picture" width="200" height="200">
         <input type="hidden" class="id_field" value="${album.id}" >
         <div class="NewAlbumCommentDiv">
                 <input type="text" placeholder="Album Comment" class="albumCommentInput" class="id_field2"\>
@@ -12,6 +13,7 @@ ${albums.map(album => {
                 <button class="addAlbumCommentBtn">Add Album Comment</button>
             </div>
         <section class="album-songs">
+            <h9 class="album-comment"> Comments:</h9> 
                 ${
             album.comments.map(comment => {
                 return `<h2 class="song-name">${comment.body}</h2>`;
@@ -19,12 +21,13 @@ ${albums.map(album => {
         }
                 
             </section>
-        <button class="delete-button">Delete</button>
+        <button class="delete-button">Delete Album</button>
         <input type="text" class="update-title" placeholder="New Title"" />
         <button class="update-button">Update Title</button>
-
-
-     </div>`
+         <br>
+        
+    </div><br>`
+     
     }).join("")
         }  
         <input type="text" class="add-album" placeholder= "New Album Title" />

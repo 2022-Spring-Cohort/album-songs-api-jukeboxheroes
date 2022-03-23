@@ -27,9 +27,6 @@ export default function albumView(album) {
                 }).join("")
                 : "" }
         
-        
-                
-            
                     <input type="hidden" class="id_field" value="${song.id}" ></input>
                     <button class="delete-song-button">Delete</button>
 
@@ -37,8 +34,8 @@ export default function albumView(album) {
                     <button class="update-song-button">Update Song</button>
 
                     <div class="NewSongCommentDiv">
-                <input type="text" placeholder="Song Comment" class="songCommentInput" class="id_field2"\>
-                  
+                <input type="text" placeholder="Song Comment"class="songCommentInput" class="id_field2"\>
+                  <br>
                 <button class="addSongCommentBtn">Add Song Comment</button>
             </div>
                     </section>`;
@@ -52,7 +49,7 @@ export default function albumView(album) {
                 <button class="addSongButton">Add song</button>
             </div>
              
-            <a class="back-navigation">back to album listings</a>
+            <button class="back-navigation">back to album listings</button>
         </section >
     </main > `;
     

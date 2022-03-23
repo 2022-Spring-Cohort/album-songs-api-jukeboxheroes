@@ -20,10 +20,10 @@ public class Populator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Album album1 = new Album("4","Foreigner", "images/Foreigner4.jpg","Atlantic Records",5);
-        album1.addComment(new Comment("Ben's Life is this album"));
+        album1.addComment(new Comment("Dallas favorite song"));
         albumRepo.save(album1);
         Song JukeBoxHero = new Song("Juke Box Hero", "4:19", 5, album1 );
-        JukeBoxHero.addComment(new Comment("Lastly, Ben the wife smuggler made this object caps to, RIP to the crew"));
+        JukeBoxHero.addComment(new Comment("Dallas stole this project name from the teach."));
         songRepo.save(JukeBoxHero);
         Song JukeBoxHero2 = new Song("Juke Box Hero2", "5:00", 1, album1 );
         songRepo.save(JukeBoxHero2);
@@ -34,7 +34,7 @@ public class Populator implements CommandLineRunner {
         album2.addComment(new Comment("Adnan's Life is this album"));
         albumRepo.save(album2);
         Song BillieJean = new Song("BillieJean", "4:15",2, album2);
-        BillieJean.addComment(new Comment("Poor Brian made this object capital, RIP his java chances"));
+        BillieJean.addComment(new Comment("comment"));
         songRepo.save(BillieJean);
 
 
@@ -42,12 +42,12 @@ public class Populator implements CommandLineRunner {
         album3.addComment(new Comment("Ryan's Life is this album"));
         albumRepo.save(album3);
         Song Starboy = new Song("Starboy", "3:15", 1,album3);
-        Starboy.addComment(new Comment("This song is an object and shouldnt be capital, but Adnan is on the team."));
+        Starboy.addComment(new Comment("comment."));
         songRepo.save(Starboy);
 
 
         Album album4 = new Album("My Prerogative", "Bon Jovi","images/Brittany.jpg", "Zomba Records",5);
-        album4.addComment(new Comment("I meant to say that to make him mad's Life is this album"));
+        album4.addComment(new Comment("comment"));
         albumRepo.save(album4);
         Song doSomethin = new Song("Do Somethin","3:24",2,album4);
         doSomethin.addComment(new Comment("Never really Heard it!"));
