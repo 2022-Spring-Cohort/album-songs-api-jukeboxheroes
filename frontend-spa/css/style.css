@@ -62,7 +62,7 @@ h3.song-name{
     border-color: black;
     border-style: solid;
 }
-.album{
+.album, .album-library{
     display:flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -82,8 +82,39 @@ h3.song-name{
     border-color: rgb(5, 5, 5);
     border-style:solid;
     border-width:5px;
-    
 }
+
+/* .album-library{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 0 auto;
+    background-color:rgba(129, 129, 129, 0.925);
+    justify-content: center;
+    padding-top: .2em;
+    border-width: 10px;
+    border-color: crimson;
+    border: 1px solid #df1212;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 2ex;
+    border-color: rgb(5, 5, 5);
+    border-style:solid;
+    border-width:5px;
+} */
+
+h2{
+    color:rgb(255, 255, 255);
+    font-size: 48px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-radius: .5ex;
+    list-style-type: none;
+    margin:0 auto;
+}
+
 .album-comment{
     font-size: x-large;
     font-weight: bold;
@@ -139,12 +170,12 @@ h3.song-name{
     font-size: xx-large;
     margin: 5px;
 }
-.album-library-title{
+/* .album-library-title{
     font-size: 48px;
     border-style: solid;
     border-color: rgb(34, 34, 34);
     border-radius: .5ex;
-}
+} not getting used anymore i think */
 
 h3{
     font-size: x-large;

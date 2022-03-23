@@ -1,24 +1,13 @@
-// export default function albumView(album) {
-//     return `
-//     <li class="album-name" >${album.tit}</h2>
-//     <ul>
-//     ${album.songs.map(song => {
-//         return `<li class="song-name">${song.songName}</li>`;
-//     }).join("")
-// }`
-// }
 export default function albumView(album) {
     console.log(album)
     return `
-    <main class="main-content">
         <section class="album-library">
-            <header class="album-library-header">
-                <h2 class="album-library-title">${album.title}</h2>
+                <h2 class="album-title">${album.title}</h2>
                 <img src="${album.img}" alt="Album Picture" width="400" height="400">
-            </header>
+            
                 ${album.songs.map(song => {
             return `<section class="album-songs">
-                    <h2 class="song-name">${song.name}</h2>
+                    <h3 class="song-name">${song.name}</h3>
                     
                    <h3> ${
                         (song.comments != null) ? 
@@ -51,6 +40,6 @@ export default function albumView(album) {
              
             <button class="back-navigation">back to album listings</button>
         </section >
-    </main > `;
+     `;
     
 }

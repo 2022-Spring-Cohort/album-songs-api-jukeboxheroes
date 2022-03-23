@@ -16,7 +16,7 @@ ${albums.map(album => {
             <h9 class="album-comment"> Comments:</h9> 
                 ${
             album.comments.map(comment => {
-                return `<h2 class="comment-body">${comment.body}</h2>`;
+                return `<h3 class="comment-body">${comment.body}</h3>`;
             }).join("")
         }
                 
