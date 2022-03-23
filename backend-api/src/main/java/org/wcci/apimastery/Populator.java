@@ -25,8 +25,6 @@ public class Populator implements CommandLineRunner {
         Song JukeBoxHero = new Song("Juke Box Hero", "4:19", 5, album1 );
         JukeBoxHero.addComment(new Comment("Dallas stole this project name from the teach."));
         songRepo.save(JukeBoxHero);
-        Song JukeBoxHero2 = new Song("Juke Box Hero2", "5:00", 1, album1 );
-        songRepo.save(JukeBoxHero2);
 
 
 

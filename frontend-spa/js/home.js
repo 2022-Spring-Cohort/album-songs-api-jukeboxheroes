@@ -1,7 +1,7 @@
 export default function home(albums) {
     return `
 <main class="main-content">
-<section class-"album-list">
+<section class="album-list">
 ${albums.map(album => {
         return `<div class="album">
         <h2 class="album-title" >${album.title}</h2>
@@ -16,7 +16,7 @@ ${albums.map(album => {
             <h9 class="album-comment"> Comments:</h9> 
                 ${
             album.comments.map(comment => {
-                return `<h2 class="song-name">${comment.body}</h2>`;
+                return `<h2 class="comment-body">${comment.body}</h2>`;
             }).join("")
         }
                 
