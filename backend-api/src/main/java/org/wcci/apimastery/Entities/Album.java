@@ -3,7 +3,6 @@ package org.wcci.apimastery.Entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -16,21 +15,22 @@ public class Album {
     private String title;
     private String img;
     private String recordLabel;
-    private int rating;
+    private int averageRating;
     private String artistName;
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Song> songs;
     @ElementCollection
     private List<Comment> comments;
 
-    public Album(String title,String artistName, String img, String recordLabel, int rating) {
+    public Album(String title,String artistName, String img, String recordLabel, int averageRating) {
         this.title = title;
         this.artistName = artistName;
         this.img = img;
         this.recordLabel = recordLabel;
-        this.rating = rating;
+        this.averageRating = averageRating;
         comments = new ArrayList<>();
     }
+
     private Album(){
     }
 
@@ -62,8 +62,8 @@ public class Album {
         this.title = title;
     }
 
-    public int getRating() {
-        return rating;
+    public int getAverageRating() {
+        return averageRating;
     }
 
     public long getId() {
@@ -72,8 +72,16 @@ public class Album {
 
     public void addComment(Comment newComment) {
         comments.add(newComment);
+        computeAverageRating();
     }
 
+    public void computeAverageRating(){
+        float sum = 5;
+        for(Comment currentComment: comments){
+            sum += currentComment.getRating();
+        }
+        averageRating = Math.round(sum/(comments.size()+1));
+    }
 
     public void updateTitle(String newTitle) {
         title = newTitle;

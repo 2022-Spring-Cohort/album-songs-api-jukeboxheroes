@@ -28,7 +28,7 @@ function makeHomeViewFromJSON(albums) {
 
     albumEl.forEach(album => {
         let albumIdEl = album.querySelector(".id_field");
-        const albumH2 = album.querySelector(".album-title");
+        const albumH2 = album.querySelector(".album-image");
         albumH2.addEventListener("click", () => {
             albums.forEach(albumJson => {
                 if (albumJson.id == albumIdEl.value) {
