@@ -16,10 +16,11 @@ export default function albumView(album) {
                 <h2 class="album-library-header__title">${album.title}</h2>
                 <img src="${album.img}" alt="Album Picture" width="400" height="400">
             </header>
+            
                 ${album.songs.map(song => {
             return `<section class="album-songs">
                     <h2 class="song-name">${song.name}</h2>
-                    
+                    <iframe src="${song.video}" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     ${
                         (song.comments != null) ? 
                     song.comments.map(comment => {
