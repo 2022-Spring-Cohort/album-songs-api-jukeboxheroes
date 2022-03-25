@@ -28,7 +28,7 @@ function makeHomeViewFromJSON(albums) {
 
     albumEl.forEach(album => {
         let albumIdEl = album.querySelector(".id_field");
-        const albumH2 = album.querySelector(".album-title");
+        const albumH2 = album.querySelector(".album-image");
         albumH2.addEventListener("click", () => {
             albums.forEach(albumJson => {
                 if (albumJson.id == albumIdEl.value) {
@@ -64,11 +64,12 @@ function makeHomeViewFromJSON(albums) {
         const addAlbumCommentBtn = album.querySelector(".addAlbumCommentBtn");
 
         const albumCommentInput = album.querySelector(".albumCommentInput");
-
+        const albumCommentRating = album.querySelector("#starRating");
         if (albumCommentInput != null) {
             addAlbumCommentBtn.addEventListener("click", () => {
                 const newSongJson = {
                     "body": albumCommentInput.value,
+                    "rating": albumCommentRating.value
                 }
                 fetch(`http://localhost:8080/albums/${albumIdEl.value}/addAlbumComment`, {
                     method: 'POST',
@@ -87,11 +88,12 @@ function makeHomeViewFromJSON(albums) {
     const addAlbumBtn = containerEl.querySelector(".add-album-button")
 
     const addAlbumInput = containerEl.querySelector(".add-album")
-
+    const addAlbumImage = containerEl.querySelector("#img");
     if (addAlbumInput != null) {
         addAlbumBtn.addEventListener("click", () => {
             const newAlbumJson = {
                 "title": addAlbumInput.value,
+                "img": addAlbumImage.value
             }
             fetch(`http://localhost:8080/albums/addAlbum`, {
                 method: 'POST',
@@ -162,12 +164,13 @@ function makeAlbumView(album) {
 
 
         const addSongCommentBtn = song.querySelector(".addSongCommentBtn")
-
+        const songrating = song.querySelector("#starRating")
         const songCommentInput = song.querySelector(".songCommentInput")
         if (songCommentInput != null) {
             addSongCommentBtn.addEventListener("click", () => {
                 const newSongJson = {
                     "body": songCommentInput.value,
+                    "rating": songrating.value
                 }
                 fetch(`http://localhost:8080/songs/${songIdEl.value}/addSongComment`, {
                     method: 'POST',

@@ -1,56 +1,149 @@
-*{
-    margin: 0% auto;
-    padding: .2em;
-}
-.body{
-    background-image: url("/images/Brittany.jpg")
-}
 
-.header{
-    margin: 10% auto 0 auto;
-    width: 50%;
-    text-align: center;
-    background-color: blue;
+html { 
+    background: url("/images/Jukebox.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100% 100%;
+  }
+.back-navigation{
+    max-width: 40%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+.update-song-name{
+    max-width: 250px; 
+    /* height: 22px; */
+    margin: 0 auto;
+
+}
+.update-title{
+    margin: 1em;
+    max-width: 150px;
+    margin: 1em auto;
+    border-radius: 10px;
+}
+.update-title:hover{
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.2s ease-out;
+}
+.albumCommentInput{
+    margin: 1em;
+    max-width: 150px;
+    margin: 1em auto;
+    border-radius: 10px;
+}
+.albumCommentInput:hover{
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.2s ease-out;
+}
+#starRating{
+    margin: 1em;
+    max-width: 150px;
+    margin: 1em auto;
+    border-radius: 10px;
+}
+#starRating:hover{
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.2s ease-out;
+}
+input{
+    margin: 1em;
+    max-width: 150px;
+    margin: 1em auto;
+    border-radius: 10px;
+}
+input:hover{
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.2s ease-out;
+}
+button{
+    margin: 1em;
+    max-width: 150px;
+    margin: 1em auto;
+    border-radius: 40px;
+}
+button:hover{
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.2s ease-out;
 }
 h3.song-name{
     font-size: large;
 }
 .album-title {
-    font-size: xx-large;
-    color: blueviolet;
+    font-size: 48px;
+    color: rgb(14, 14, 14);
+    margin: 10px;
 }
-.album{
+.album-image:hover{
+    cursor: pointer;
+    
+}
+.album-image{
+    border-radius: 2ex;
+    border-color: black;
+    border-style: solid;
+}
+.album, .album-library{
     display:flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     flex-wrap: nowrap;
-    align-items: baseline;
+    align-items: center;
     margin: 0 auto;
-    /* background-color:rgba(185, 144, 94, 0.3); */
+    background-color:rgba(129, 129, 129, 0.925);
     justify-content: center;
     padding-top: .2em;
-    padding-bottom: 1em;
     border-width: 10px;
     border-color: crimson;
     border: 1px solid #df1212;
     position: relative;
     width: 100%;
     height: 100%;
-    
+    border-radius: 2ex;
+    border-color: rgb(5, 5, 5);
+    border-style:solid;
+    border-width:5px;
+}
+
+
+h2{
+    color:rgb(255, 255, 255);
+    font-size: 48px;
+  
+    list-style-type: none;
+    margin:0 auto;
+}
+
+.album-comment{
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .container{
     display:grid;
+    grid-template-columns: 50% 50%;
     margin: 20px auto;
     width:50%;
+    max-width: 400px;
     text-align: center;
     list-style-type: none;
     padding-left: 0px;
      padding-top: 20px;
+     padding-right: 7em;
 }
 .album-songs{
     display: flex;
     flex-direction: row;
 
+}
+.comment-body{
+    font-weight: normal;
+    font-size: x-large;
 }
 
 .album-list > .album, 
@@ -65,6 +158,9 @@ h3.song-name{
     display: grid;
     grid-template-rows: auto auto auto;
     gap: 20px;
+    background-color:rgba(129, 129, 129, 0.8);
+    border-radius: 2ex;
+    width:500px;
 }
 .album-songs{
     display: flex;
@@ -75,7 +171,34 @@ h3.song-name{
     grid-template-rows: auto auto auto;
     gap: 20px;
 }
+.song-name{
+    font-size: xx-large;
+    margin: 5px;
+}
+/* .album-library-title{
+    font-size: 48px;
+    border-style: solid;
+    border-color: rgb(34, 34, 34);
+    border-radius: .5ex;
+} not getting used anymore i think */
 
-/* body{
-    background-color: black;
-} */
+h3{
+    font-size: x-large;
+    font-weight: normal;
+    margin: 10px;
+}
+
+img{
+    border-radius: 2ex;
+    border-color: rgb(5, 5, 5);
+    border-style:solid;
+    border-width:3px; 
+    
+}
+.main-content{
+    
+    border-radius: 2ex;
+    width:500px;
+}
+
+

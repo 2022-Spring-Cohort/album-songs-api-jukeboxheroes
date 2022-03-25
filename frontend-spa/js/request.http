@@ -12,3 +12,11 @@ Content-Type: application/json
     "songs": []
 }
 
+
+### add commet to album
+POST http://localhost:8080/albums/addAlbumRating
+Content-Type: application/json
+{
+    "comments": "gyfswdhj",
+    "rating": []
+}

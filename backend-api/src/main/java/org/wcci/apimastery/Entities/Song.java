@@ -22,16 +22,19 @@ public class Song {
     @ManyToOne
     @JsonIgnore
     private Album album;
+    private String video;
     @ElementCollection
     private List<Comment> comments;
 
 
-    public Song(String name, String duration, int rating, Album album) {
+    public Song(String name, String duration, int rating, Album album, String video) {
         this.name = name;
         this.duration = duration;
         this.rating = rating;
         this.album = album;
+        this.video = video;
     }
+
 
     public Song(){
     }
@@ -62,11 +65,25 @@ public class Song {
         return duration;
     }
 
-
-    public int getRating() {
-        return rating;
+    public String getVideo() {
+        return video;
     }
 
+    public int getRating() {
+        computeAverageRating();
+
+        return rating;
+    }
+    public void computeAverageRating(){
+        float sum = 0;
+        if(comments.size()>0) {
+            for (Comment currentComment : comments) {
+                sum += currentComment.getRating();
+            }
+            rating = Math.round(sum / (comments.size() ));
+            System.out.println(rating);
+        }
+    }
     public void setAlbum(Album album) {
         this.album = album;
     }

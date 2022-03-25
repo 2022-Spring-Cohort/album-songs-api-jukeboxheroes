@@ -10,7 +10,7 @@ import org.wcci.apimastery.Repositories.SongRepository;
 import java.awt.print.Book;
 
 @RestController
-public class SongController {
+public class  SongController {
     private SongRepository songRepo;
     private AlbumRepository albumRepo;
 
@@ -50,5 +50,6 @@ public class SongController {
         songRepo.save(song);
         return albumRepo.findAll();
     }
+
 
 }
