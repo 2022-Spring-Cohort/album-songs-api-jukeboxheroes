@@ -70,9 +70,20 @@ public class Song {
     }
 
     public int getRating() {
+        computeAverageRating();
+
         return rating;
     }
-
+    public void computeAverageRating(){
+        float sum = 0;
+        if(comments.size()>0) {
+            for (Comment currentComment : comments) {
+                sum += currentComment.getRating();
+            }
+            rating = Math.round(sum / (comments.size() ));
+            System.out.println(rating);
+        }
+    }
     public void setAlbum(Album album) {
         this.album = album;
     }

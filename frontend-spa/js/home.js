@@ -3,6 +3,7 @@ export default function home(albums) {
 <main class="main-content">
 <section class="album-list">
 ${albums.map(album => {
+      console.log(album.title+ " " + album.averageRating);  
         return `<div class="album">
         <h2 class="album-title" >${album.title}</h2>
         <img class="album-image" src="${album.img}" alt="Album Picture" width="250" height="250">
@@ -18,9 +19,11 @@ ${albums.map(album => {
             <h9 class="album-comment"> Comments:</h9> 
                 ${
             album.comments.map(comment => {
-                return `<h3 class="comment-body">${comment.body}</h3>`;
+                return `<h3 class="comment-body">${comment.body} <img src ="images/star${comment.rating}.png"</h3>
+                        `;
             }).join("")
         }
+
                 
             </section>
         <button class="delete-button">Delete Album</button>
@@ -32,8 +35,15 @@ ${albums.map(album => {
      
     }).join("")
         }  
+        <form class="album-image">
+        <div class="album">
         <input type="text" class="add-album" placeholder= "New Album Title" />
+        
+        <p><input type="text" placeholder="Url image" name="image" id="img" "></p>
+        
+        </div>
         <button class="add-album-button">Add Album</button>
+        </form>
         </main>
 `
 }

@@ -50,6 +50,10 @@ public class Album {
         return songs;
     }
 
+    public void addImg(String newImg) {
+        img = newImg;
+    }
+
     public String getRecordLabel() {
         return recordLabel;
     }
@@ -76,11 +80,14 @@ public class Album {
     }
 
     public void computeAverageRating(){
-        float sum = 5;
-        for(Comment currentComment: comments){
-            sum += currentComment.getRating();
+        float sum = 0;
+        if(comments.size()>0) {
+            for (Comment currentComment : comments) {
+                sum += currentComment.getRating();
+            }
+            averageRating = Math.round(sum / (comments.size() ));
+            System.out.println(averageRating);
         }
-        averageRating = Math.round(sum/(comments.size()+1));
     }
 
     public void updateTitle(String newTitle) {
