@@ -56,7 +56,7 @@ export default function albumView(album) {
                 <button class="addSongButton">Add song</button>
             </div>
              
-            <button class="back-navigation">back to album listings</button>
+            <button class="back-navigation">Return to Albums</button>
             <footer class ="Record-Label">	&copy; ${album.recordLabel}
             </footer>
             </section >

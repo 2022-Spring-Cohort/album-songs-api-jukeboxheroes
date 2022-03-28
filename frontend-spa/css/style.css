@@ -10,6 +10,8 @@ html {
     max-width: 40%;
     margin: 0 auto;
     margin-bottom: 2em;
+    background-color: #c5c227;
+
 }
 .update-song-name{
     max-width: 250px; 
@@ -82,12 +84,16 @@ h3.song-name{
 }
 .album-image:hover{
     cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.2s ease-out;
     
 }
-.album-image{
+
+.album-image:hover{
     border-radius: 2ex;
     border-color: black;
     border-style: solid;
+    
 }
 .album, .album-library{
     display:flex;
